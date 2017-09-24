@@ -1,0 +1,46 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title> lodash </title>
+ </head>
+ <body>
+
+ <script src="../lodash.js"></script>
+ <script>
+ 
+ var data = {
+ 
+    w : 4,
+    colors : ['blue', 'black'],
+    px : [1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1],
+ 
+    // my toMatrix method using _.chunk
+    toMatrix : function(){
+ 
+        return _.chunk(this.px,this.w);
+ 
+    }
+ 
+};
+
+var html = '';
+data.toMatrix().forEach(function (line) {
+
+
+    line.forEach(function (px) {
+
+        html += '<span style=\"color:'+data.colors[px]+';\">X<\/span>';
+
+    });
+
+    html += '<br>';
+
+});
+
+document.body.innerHTML = html;
+ 
+ </script>
+
+
+ </body>
+</html>
