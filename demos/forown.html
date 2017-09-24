@@ -1,0 +1,73 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title> lodash </title>
+ </head>
+ <body>
+
+ <script src="../lodash.js"></script>
+ <script>
+ var Unit = function (obj) {
+ 
+    obj = obj || {};
+    this.x = obj.x || 0;
+    this.y = obj.y || 0;
+ 
+};
+ 
+// size value in the prototype
+Unit.prototype.size = 64;
+ 
+// new Unit
+var u = new Unit({
+        x : 12,
+        y : 5
+    });
+ 
+console.log('***forOwn***');
+// only x and y are displayed in the console (nothing from the prototype)
+_.forOwn(u, function (val, key, obj) {
+ 
+    console.log(key + ' : '+val);
+ 
+});
+
+console.log('***forIn***');
+// _.forIn on the other and will display everything.
+_.forIn(u, function (val, key, obj) {
+ 
+    console.log(key + ' : '+val);
+ 
+});
+
+// native for in loop
+console.log('***forIn (native) ***');
+
+var key,val;
+for(key in u){
+
+    val = u[key];
+    console.log(key + ' : '+val);
+
+}
+
+console.log('** while loop example**');
+var i = 0, keys = Object.keys(u), len = keys.length,key,val;
+
+while(i < len){
+
+    key = keys[i];
+    val = u[key];
+
+    console.log(key + ':' + val);
+
+    i += 1;
+
+}
+
+
+ </script>
+
+
+ </body>
+</html>
