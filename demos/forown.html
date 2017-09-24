@@ -46,8 +46,13 @@ console.log('***forIn (native) ***');
 var key,val;
 for(key in u){
 
-    val = u[key];
-    console.log(key + ' : '+val);
+    // using Object.hasOwnProperty to find if a property is directly on an object
+    if(u.hasOwnProperty(key)){
+
+        val = u[key];
+        console.log(key + ' : '+val);
+
+    }
 
 }
 
