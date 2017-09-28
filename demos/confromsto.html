@@ -24,7 +24,7 @@ test_autoheal = {
     // hp is less than maxHP
     hp : function (val) {
 
-        return val < object.maxHP;
+        return val < enemy.maxHP;
 
     },
 
@@ -37,7 +37,7 @@ test_autoheal = {
 
 };
 
-console.log(_.conformsTo(object, test_autoheal));
+console.log(_.conformsTo(enemy, test_autoheal));
 
  </script>
 

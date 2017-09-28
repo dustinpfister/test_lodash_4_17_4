@@ -1,0 +1,68 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title> lodash </title>
+ </head>
+ <body>
+
+ <script src = "../lodash.js" >  </script>
+     <script>
+
+var obj1 = {
+    x: 12,
+    y: 35,
+    w: 32,
+    h: 32,
+    delta : {
+     x:2,
+     y:10
+    }
+},
+
+obj2 = {
+    x: 20,
+    y: 47,
+    w: 32,
+    h: 32
+};
+
+var myClone = function(obj){
+
+
+    return _.cloneWith(obj, function(val,key){
+
+        var cl;
+
+        // if delta clone, and apply delta to clone
+        if(val.delta){
+
+            // clone val because it is a reference
+            cl = _.clone(val);
+
+            cl.x += val.delta.x;
+            cl.y += val.delta.y;
+
+            return cl;
+
+        }
+
+        // else just clone as normal
+
+    });
+
+};
+
+var moved = myClone(obj1),
+nope = myClone(obj2);
+
+console.log(moved);
+console.log(nope);
+
+
+
+
+
+ </script>
+
+ </body>
+</html>
