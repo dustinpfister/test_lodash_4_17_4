@@ -1,0 +1,31 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title> lodash </title>
+ </head>
+ <body>
+
+ <p>one</p>
+ <p>two</p>
+ <p>three</p>
+ 
+ <script src="../lodash.js"></script>
+ <script>
+ 
+ //console.log( _.isArrayLike({}) ); // false
+ 
+ 
+ console.log( _.isArrayLike({length:2}) ); // true
+ console.log( _.isArrayLike({length:'foo man chew'}) ); // false
+ console.log( _.isArrayLike({length:-2}) ); // false
+ console.log( _.isArrayLike({length:Infinity}) ); // false (beyond max safe)
+ 
+ var p = document.querySelectorAll('p');
+ 
+ console.log(_.isArrayLike(p));
+
+ </script>
+
+
+ </body>
+</html>
