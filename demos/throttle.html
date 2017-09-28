@@ -1,0 +1,41 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title> lodash </title>
+ </head>
+ <body>
+
+ <script src = "../lodash.js" >  </script>
+ <script>
+
+ var sec = _.throttle(function(){
+ 
+    console.log('every second');
+ 
+ },1000);
+ 
+ var hundredMS = _.throttle(function(){
+ 
+ 
+    console.log('every one hundred ms');
+ 
+ },100);
+ 
+ 
+ var loop = function(){
+ 
+    setTimeout(loop,33)
+ 
+    sec();
+    hundredMS();
+ 
+ 
+ };
+ 
+ loop();
+
+
+ </script>
+
+ </body>
+</html>
