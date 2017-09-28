@@ -1,0 +1,45 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title> lodash </title>
+ </head>
+ <body>
+
+ <script src = "../lodash.js" >  </script>
+     <script>
+
+
+// and enemy object
+var enemy = {
+
+    hp : 49,
+    maxHP : 50,
+    autoHeal : true
+
+},
+
+// auto heal tests
+test_autoheal = {
+
+    // hp is less than maxHP
+    hp : function (val) {
+
+        return val < object.maxHP;
+
+    },
+
+    // is auto heal is on?
+    autoHeal : function (val) {
+
+        return val;
+
+    }
+
+};
+
+console.log(_.conformsTo(object, test_autoheal));
+
+ </script>
+
+ </body>
+</html>
