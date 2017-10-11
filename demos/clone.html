@@ -1,16 +1,33 @@
- <!doctype html>
- <html>
- <head>
- <title> lodash </title>
- </head>
- <body>
+<!doctype html>
+<html>
+<head>
+<title> lodash </title>
+</head>
+<body>
+<script src = "../lodash.js" >  </script>
+<script>
 
- <script src = "../lodash.js" >  </script>
-     <script>
+// I created an object
+var obj = {foo:'bar'},
+
+// I am referencing the object
+n = obj;
+
+// a change to ref affects obj
+// because it is a reference, not a copy.
+n.foo = 42;
+console.log(obj.foo); // 42
+
+// cloning will copy
+n = _.clone(obj);
+
+// a change to the copy will effect only the copy
+n.foo = 'foobar';
+console.log(n.foo); // 'foobar'
+console.log(obj.foo); // 42
 
 
 
- </script>
-
- </body>
+</script>
+</body>
 </html>

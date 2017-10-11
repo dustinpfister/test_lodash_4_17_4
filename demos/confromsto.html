@@ -10,13 +10,24 @@
 
 
 // and enemy object
-var enemy = {
+var enemys = [
 
-    hp : 49,
-    maxHP : 50,
-    autoHeal : true
+    {
 
-},
+        hp : 49,
+        maxHP : 50,
+        autoHeal : true
+
+    },
+
+    {
+
+        hp : 25,
+        maxHP : 80,
+        autoHeal : false
+
+    }
+];
 
 // auto heal tests
 test_autoheal = {
@@ -24,6 +35,9 @@ test_autoheal = {
     // hp is less than maxHP
     hp : function (val) {
 
+	    console.log('test1');
+		console.log(val);
+	
         return val < enemy.maxHP;
 
     },
@@ -37,7 +51,8 @@ test_autoheal = {
 
 };
 
-console.log(_.conformsTo(enemy, test_autoheal));
+console.log(_.conformsTo(enemys[0], test_autoheal)); // true
+console.log(_.conformsTo(enemys[1], test_autoheal)); // true
 
  </script>
 

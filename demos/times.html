@@ -1,0 +1,37 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title> lodash </title>
+ </head>
+ <body>
+
+ <script src = "../lodash.js" >  </script>
+ <script>
+
+ _.times(4,function(){
+ 
+ console.log('foo bar'); // 'foo bar' (4x)
+ 
+ });
+ 
+ // four random dice rolls
+ var rolls = _.times(4,function(){
+ 
+     return Math.floor(Math.random() * 6) + 1;
+ 
+ });
+ 
+ console.log(rolls); // array of random numbers (1 - 6)
+ 
+ results = _.times(4,function(i){
+ 
+     return i;
+ 
+ });
+ 
+ console.log(results); // [0,1,2,3]
+ 
+ </script>
+
+ </body>
+</html>
