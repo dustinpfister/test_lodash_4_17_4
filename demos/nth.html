@@ -10,6 +10,42 @@
 
  var arr = ['fear','the','foo','man','chew'];
  
+ console.log(arr[0]); // 'fear'
+ console.log(arr[4]); // 'chew'
+ console.log(arr[-3]); // undefined
+ console.log(arr[5]); // undefined
+ 
+ 
+ var index = 5
+ 
+ var nth = function(arr,index){
+ 
+    return arr[ index % arr.length];
+ 
+ }
+ console.log('js mod:');
+ console.log( nth(arr,7)  ); // 'foo'
+ console.log( nth(arr,-1)  ); // undefined
+ 
+ // negative index values
+ arr[-1] = 'hua?';
+ 
+ console.log(arr[-1]); // 'hua?'
+ console.log(arr.length); // 5
+ 
+ var nth = function(arr, index){
+ 
+    // ajust index
+    index = (index % arr.length + arr.length) % arr.length;
+ 
+    // return that element
+    return arr[index];
+ 
+ };
+ 
+ console.log( nth(arr,-3) );
+ 
+ 
  console.log(arr[-3]); // undefined
  console.log(_.nth(arr,-3)); // 'foo'
  
