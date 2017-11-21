@@ -1,0 +1,50 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title> lodash </title>
+ </head>
+ <body>
+
+ <script src="../lodash.js"></script>
+ <script>
+ 
+ console.log('lodash _.forEach');
+ // lodash _.forEach
+ _.forEach(['a','b','c'],function(el,index,arr){
+ 
+    console.log(index + ' : ' +el + ' : ' + arr);
+
+    if(el === 'b'){
+ 
+        return false;
+
+    }
+ 
+ });
+
+ // 0 : a : a,b,c
+ // 1 : b : a,b,c
+ 
+ // native Array.forEach
+ ['a','b','c'].forEach(function(el,index,arr){
+ 
+    
+    console.log(index + ' : ' +el + ' : ' + arr);
+
+    if(el === 'b'){
+
+        return false; // does nothing to stop it
+
+    }
+ 
+ });
+ 
+ // 0 : a : a,b,c
+ // 1 : b : a,b,c
+ // 2 : c : a,b,c
+ 
+ </script>
+
+
+ </body>
+</html>

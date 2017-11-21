@@ -1,0 +1,76 @@
+
+ <!doctype html>
+ <html>
+ <head>
+ <title> lodash </title>
+ </head>
+ <body>
+
+ <script src = "../lodash.js" >  </script>
+ <script>
+ 
+// some default values
+var defaults = {
+ 
+    x : 320,
+    y : 240,
+    delta : {
+ 
+       x : 0,
+       y : 0
+ 
+    }
+ 
+},
+ 
+// some input values
+inputs = {
+ 
+   delta : {
+   
+      x: 5
+   
+   }
+ 
+},
+ 
+// some methods that act on values
+methods = {
+ 
+    move : function(){
+ 
+        this.x += this.delta.x;
+        this.y += this.delta.y;
+ 
+    }
+ 
+},
+
+log = function(obj){
+
+
+console.log(obj.x+','+obj.y); // 325,240
+ 
+
+};
+ 
+// merge evenerything down into a new object
+merge = _.merge({},methods,defaults,inputs),
+assign = _.assign({},methods,defaults,inputs);
+ 
+console.log(merge.delta.x + ',' + merge.delta.y); // 325,240
+console.log(assign.delta.x + ',' + assign.delta.y); // 325,undefined
+ 
+//merge.move();
+//assign.move();
+ 
+ 
+console.log(methods);
+ 
+//log(merge);
+//log(assign)
+ 
+ </script>
+
+ </body>
+</html>

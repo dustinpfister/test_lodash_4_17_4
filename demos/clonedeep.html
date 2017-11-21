@@ -6,10 +6,87 @@
  <body>
 
  <script src = "../lodash.js" >  </script>
-     <script>
-
-
-
+ <script>
+ 
+ 
+ var obj = {
+ 
+    anwser : 37,
+    words : ['foo','man', 'chew']
+ 
+ };
+ 
+ // making a 'shallow clone' with _.clone
+ copy = _.cloneDeep(obj);
+ 
+ 
+ // now any change to the copy only effects the copy
+ copy.words[0] = 'changed';
+ 
+ console.log(obj.words[0]); // changed
+ console.log(copy.words[0]); // changed
+ 
+ /*
+ var arr = [
+ 
+     {word:'foo'},
+	 {word:'man'},
+	 {word:'chew'}
+ 
+ 
+ ];
+ 
+ var arrCopy = _.cloneDeep(arr);
+ 
+ // making a change to the object
+ // at index 1
+ arrCopy[0].word='change';
+ 
+ // it effects the original
+ console.log(arr[0].word); // 'change'
+ console.log(arrCopy[0].word); // 'change'
+ */
+ 
+/*
+ // THE PROBLEM
+ var obj = {
+ 
+    foo : 'bar'
+ 
+ };
+ 
+ console.log(obj);
+ 
+ // I can't just do this, because
+ // I am making a reference, not a copy
+ var copy = obj;
+ 
+ // as such a change to the reference effects
+ // the object I referenced
+ copy.foo = 42;
+ console.log(obj.foo); // 42
+ 
+ // SHALLOW CLONING IN LODASH
+ var obj = {
+ 
+    foo : 'bar'
+ 
+ };
+ 
+ console.log(obj);
+ 
+ // If using lodash there is the clone method
+ // that can be used to make a shallow copy of an object
+ var copy = _.clone(obj);
+ 
+ // now I am working with an actual copy of the object
+ // and any change will not effect the original object.
+ copy.foo = 42;
+ console.log(obj.foo); // bar
+ 
+ // DEEP CLONING IN LODASH
+ 
+*/
  </script>
 
  </body>
