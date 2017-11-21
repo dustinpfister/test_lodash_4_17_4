@@ -1,0 +1,33 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title>lodash</title>
+ </head>
+ <body>
+
+    <script src = "../lodash.js" ></script>
+    <script>
+
+// Strings
+var str = 'foo;man;chew';
+console.log( _.includes(str,'man') ); // true
+console.log( _.includes(str,'bar') ); // false
+
+// Arrays
+var arr = ['a','b','c'];
+console.log( _.includes(arr,42) ); // false
+console.log( _.includes(arr,'d') ); // false
+console.log( _.includes(arr,'c') ); // true
+
+
+// Objects
+var obj = {name:'jack'};
+console.log( _.includes(obj,'name') ); // false
+console.log( _.includes(obj,'jill') ); // false
+console.log( _.includes(obj,'jack') ); // true
+
+
+    </script>
+
+ </body>
+</html>
