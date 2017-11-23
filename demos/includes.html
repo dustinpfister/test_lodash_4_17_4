@@ -8,6 +8,7 @@
     <script src = "../lodash.js" ></script>
     <script>
 
+/*
 // Strings
 var str = 'foo;man;chew';
 console.log( _.includes(str,'man') ); // true
@@ -25,7 +26,12 @@ var obj = {name:'jack'};
 console.log( _.includes(obj,'name') ); // false
 console.log( _.includes(obj,'jill') ); // false
 console.log( _.includes(obj,'jack') ); // true
+*/
 
+
+console.log(_.includes(['a','b','c'],'b',1)); // true
+console.log(_.includes(['a','b','c'],'b',2)); // false
+console.log(_.includes(['a','b','c'],'b',-1)); // false
 
     </script>
 
