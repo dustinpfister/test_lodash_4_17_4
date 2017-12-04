@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<title> lodash </title>
+</head>
+<body>
+<script src = "../lodash.js" >  </script>
+<script>
+
+/*
+var bounced = _.debounce(function(){
+
+    console.log('debounced');
+
+}, 30000);
+
+bounced(); // logs 'debounced' after 30 seconds
+*/
+
+var check = _.debounce(function(){
+
+    console.log('checking something...');
+
+    check();
+
+},60000);
+
+check();
+check.flush(); // check now
+
+</script>
+</body>
+</html>
