@@ -1,4 +1,43 @@
 
+// ## custom iteration methods and lodash method shorthands
+
+var data = ['talk', 'run', {action: 'walk'}, {action: 'sing'}, {action: 'dance'}],
+
+// sure I can make my own methods that
+// make use of closure...
+findProperty = function (propName) {
+
+    // ...that when called pass a function that 
+    // _.find can use
+    return function (el, i, col) {
+
+        if (typeof el === 'object') {
+
+            return propName in el;
+
+        }
+
+    };
+
+};
+
+// and find will use it.
+console.log( _.find(data, findProperty('action')) ); // {action:'walk'}
+
+// but there is a lodash method for that to begin with
+// called _.property
+console.log( _.find(data, _.property('action') ) );  // {action:'walk'}
+
+// and why even bother with that when there is
+// a short hand for it.
+console.log( _.find(data, 'action') );  // {action:'walk'}
+
+
+console.log( _.find(data, ['action','sing']) );  // {action:'sing'}
+
+console.log( _.find(data, {action:'dance'}) );  // {action:'dance'}
+
+/*
 // ## What a collection is, and basic example
 
 // The is an Object that is an Array that
@@ -11,11 +50,11 @@ console.log(anArray.constructor.name); // Array
 // but it is an collection that is 'Array like'
 var notAnArray = {
 
-    0: 'i',
-    1: 'am',
-    2: 'not',
-    3: 'an',
-    4: 'Array'
+0: 'i',
+1: 'am',
+2: 'not',
+3: 'an',
+4: 'Array'
 
 };
 
@@ -25,10 +64,10 @@ console.log(notAnArray.constructor.name); // Object
 // It is a collection of key value pairs though
 var soNotAnArray = {
 
-    foo: 'totally',
-    bar: 'not',
-    man: 'an',
-    chew: 'Array'
+foo: 'totally',
+bar: 'not',
+man: 'an',
+chew: 'Array'
 
 };
 
@@ -39,7 +78,7 @@ console.log(soNotAnArray.constructor.name); // Object
 // element that has a length greater than 3
 var method = function (el) {
 
-    return el.length >= 3;
+return el.length >= 3;
 
 };
 
@@ -53,20 +92,20 @@ console.log('**********');
 
 var result = _.find(['a', 'b', 'c'], function (el, i, col) {
 
-        // first argument is the current collection element 'a' - 'c'
-        console.log(el);
+// first argument is the current collection element 'a' - 'c'
+console.log(el);
 
-        // second argument is the current index 0 - 2
-        console.log(i);
+// second argument is the current index 0 - 2
+console.log(i);
 
-        // third argument is the actual collection ['a','b','c']
-        console.log(col);
+// third argument is the actual collection ['a','b','c']
+console.log(col);
 
-        // if true is returned, then that is what
-        // will be returned by _.find, else it will keep looking
-        return el === 'b'
+// if true is returned, then that is what
+// will be returned by _.find, else it will keep looking
+return el === 'b'
 
-    });
+});
 
 console.log(result); // b
 
@@ -75,11 +114,11 @@ console.log(result); // b
 var collection = [1, 2, 3, 4, 5, 'a', 'b', 'c'],
 method = function (el, i, col) {
 
-    if (typeof el === 'string') {
+if (typeof el === 'string') {
 
-        return true;
+return true;
 
-    }
+}
 
 };
 
@@ -88,60 +127,60 @@ console.log(_.find(collection, method, 6)); // 'b'
 
 var db_obj = {
 
-    dave: {
+dave: {
 
-        sex: 'male',
-        age: 34,
-        skills: ['html', 'css', 'js_core', 'js_client', 'js_nodejs']
+sex: 'male',
+age: 34,
+skills: ['html', 'css', 'js_core', 'js_client', 'js_nodejs']
 
-    },
+},
 
-    jake: {
+jake: {
 
-        sex: 'male',
-        age: 22,
-        employed: false,
-        skills: ['js_core', 'js_nodejs', 'C', 'C++', 'C#']
+sex: 'male',
+age: 22,
+employed: false,
+skills: ['js_core', 'js_nodejs', 'C', 'C++', 'C#']
 
-    },
+},
 
-    jane: {
+jane: {
 
-        sex: 'female',
-        age: 27,
-        employed: true,
-        skills: ['html', 'css', 'js_core', 'js_client', 'java', 'ruby', 'python']
+sex: 'female',
+age: 27,
+employed: true,
+skills: ['html', 'css', 'js_core', 'js_client', 'java', 'ruby', 'python']
 
-    }
+}
 
 };
 
 var db_array = [{
-        name: 'Dave',
-        sex: 'male',
-        age: 34
-    }, {
-        name: 'Jake',
-        sex: 'male',
-        age: 22
-    }, {
-        name: 'Jane',
-        sex: 'female',
-        age: 27
-    }
+name: 'Dave',
+sex: 'male',
+age: 34
+}, {
+name: 'Jake',
+sex: 'male',
+age: 22
+}, {
+name: 'Jane',
+sex: 'female',
+age: 27
+}
 
 ],
 
 // wheres Dave?
 name = 'Dave',
-/*
+
 q = _.find(db_array, function (obj) {
 return obj.name === name;
 });
- */
+
 q = _.find(db_array, {
-        name: 'Dave'
-    });
+name: 'Dave'
+});
 
 console.log(q); // {name:'Dave',sex:male,age:34}
 
@@ -152,12 +191,14 @@ var words = ['foo**', '*foo*', '**foo'];
 
 var result = _.find(words, function (str, i) {
 
-        if (str.match(/\*\*foo/)) {
+if (str.match(/\*\*foo/)) {
 
-            return true;
+return true;
 
-        }
+}
 
-    });
+});
 
 console.log(result); // '**foo'
+
+*/
