@@ -1,6 +1,14 @@
 
-// ## custom iteration methods and lodash method shorthands
+var str = 'This is a single string! Yes it can be used with find.';
 
+console.log( _.find(str,function(el,i,col){
+
+    return el === '!';
+
+}) ); // !
+
+// ## custom iteration methods and lodash method shorthands
+/*
 var data = ['talk', 'run', {action: 'walk'}, {action: 'sing'}, {action: 'dance'}],
 
 // sure I can make my own methods that
@@ -36,6 +44,7 @@ console.log( _.find(data, 'action') );  // {action:'walk'}
 console.log( _.find(data, ['action','sing']) );  // {action:'sing'}
 
 console.log( _.find(data, {action:'dance'}) );  // {action:'dance'}
+*/
 
 /*
 // ## What a collection is, and basic example

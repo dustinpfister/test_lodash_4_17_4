@@ -1,0 +1,53 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title>lodash</title>
+ </head>
+ <body>
+
+    <script src = "../lodash.js" ></script>
+    <script>
+
+var data = [
+
+    {
+
+        foo : {
+    
+            bar : 42
+   
+        }
+
+    },
+
+    {
+
+        foo : false
+
+    },
+
+    {
+
+        notFoo: {
+
+            bar : 10
+
+        }
+
+    }
+
+];
+
+console.log( _.map(data, _.property('foo')) );
+
+/*
+console.log( _.find(data, function(el,iKey, obj){
+
+
+}) );
+*/
+
+    </script>
+
+ </body>
+</html>
