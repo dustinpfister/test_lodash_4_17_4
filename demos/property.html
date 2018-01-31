@@ -38,14 +38,50 @@ var data = [
 
 ];
 
-console.log( _.map(data, _.property('foo')) );
+//[{bar: 42},false,undefined]
+//console.log( _.map(data, _.property('foo')) );
 
-/*
-console.log( _.find(data, function(el,iKey, obj){
+// basic example
+var getHealth = _.property('hp.current'),
 
+monster = {
+    hp : {
+        current : 37,
+        max: 80
+    },
+    attack: 4
+};
 
-}) );
-*/
+console.log( getHealth(monster) ); // 37
+
+// map example
+
+var monsters = [
+    {
+        hp : {
+            current : 37,
+            max: 80
+        },
+        attack: 4
+    },
+    {
+        hp : {
+            current : 80,
+            max: 80
+        },
+        attack: 2
+    },
+    {
+        hp : {
+            current : 7,
+            max: 20
+        },
+        attack: 6
+    }
+];
+
+console.log(_.map(monsters, _.property('hp.current')));
+
 
     </script>
 
