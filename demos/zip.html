@@ -11,12 +11,35 @@
 var x = [10,20,30],
 y = [8,16,32],
 
-matrix = _.zip(x,y);
+matrix = _.zip(x,y,[5,5,5],[3,3,3]);
+
+
 
 _.each(matrix, function(pt){
 
     // [10,8] => [20,16] => [30,32]
     console.log(pt[0] + ',' + pt[1]);
+
+});
+
+// color example
+var red = [255,128,64], // a red channel
+green = [128,64,32], // a green channel
+blue = [32,64,16], // a blue channel
+alpha = [1,1,1], // an alpha channel (0-1)
+
+// zip them together
+colors = _.zip(red,green,blue,alpha);
+
+var container = document.body;
+
+_.each(colors, function(color){
+
+   var el = document.createElement('div');
+   el.style.backgroundColor = 'rgba('+color.join(',')+')';
+   el.style.width=32 + 'px';
+   el.style.height=32 + 'px';
+   container.appendChild(el);
 
 });
 
