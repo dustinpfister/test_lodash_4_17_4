@@ -1,0 +1,26 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title>lodash</title>
+ </head>
+ <body>
+
+    <script src = "../lodash.js" ></script>
+    <script>
+
+var x = [10,20,30],
+y = [8,16,32],
+
+matrix = _.zip(x,y);
+
+_.each(matrix, function(pt){
+
+    // [10,8] => [20,16] => [30,32]
+    console.log(pt[0] + ',' + pt[1]);
+
+});
+
+    </script>
+
+ </body>
+</html>
