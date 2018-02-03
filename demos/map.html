@@ -1,0 +1,73 @@
+ <!doctype html>
+ <html>
+ <head>
+ <title>lodash</title>
+ </head>
+ <body>
+
+    <script src = "../lodash.js" ></script>
+    <script>
+
+var arr = [1,2,3,4,5];
+
+arr = arr.map(function(el){
+
+return el * 10;
+
+});
+
+console.log(arr);
+
+
+var obj1 = {
+ 0: 1,
+ 1: 2,
+ 2: 3,
+ 3: 4,
+ 4: 5
+},
+
+obj2 = _.clone(obj1);
+obj2.length = 5;
+
+var returnMap = function(a){
+
+    // I want to work with a clone
+    a = JSON.parse(JSON.stringify(a));
+
+    // use length property, or use Object.keys to set one
+    a.length = a.length || Object.keys(a).length;
+
+    // using call to use Array.map with
+    // what might be a plain old object
+    return  [].map.call(a, function(el){
+        return el * 10;
+    });
+
+};
+
+// []
+console.log( returnMap(obj1) );
+
+// [10,20,30,40,50]
+console.log( returnMap(obj2) );
+
+
+console.log(obj1);
+
+
+
+console.log(_.map(obj1, function(el){
+
+return el* 10;
+
+}));
+
+
+console.log(obj1);
+
+
+    </script>
+
+ </body>
+</html>
