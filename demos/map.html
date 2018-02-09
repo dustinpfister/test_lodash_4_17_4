@@ -8,15 +8,19 @@
     <script src = "../lodash.js" ></script>
     <script>
 
+// a simple array
 var arr = [1,2,3,4,5];
 
+// array.map will set each element to what is returned
+// and I can use the value of each element in the process.
 arr = arr.map(function(el){
 
-return el * 10;
+    return el * 10;
 
 });
 
 console.log(arr);
+// [10,20,30,40,50]
 
 
 var obj1 = {
@@ -59,12 +63,95 @@ console.log(obj1);
 
 console.log(_.map(obj1, function(el){
 
-return el* 10;
+    return el* 10;
 
 }));
 
 
 console.log(obj1);
+
+console.log('**********');
+
+
+var arr = [1,2,3,4,5];
+
+arr = _.map(arr, function(el){
+
+    return el * 10;
+
+});
+
+console.log(arr);
+// [10,20,30,40,50]
+
+var obj = {
+
+    player: {
+
+        team: 'GoodGuys',
+        hp: 12,
+        hpMax: 100,
+        heal: false
+
+    },
+
+    enemys: [{
+
+            team: 'BadGuys',
+            hp: 90,
+            hpMax: 250,
+            heal: true
+
+        }, {
+
+            team: 'BadGuys',
+            hp: 120,
+            hpMax: 250,
+            heal: true
+
+        }
+
+    ]
+
+};
+
+var toggleHeal = function (item) {
+
+    if (typeof item != 'object') {
+
+        return item;
+
+    } else {
+
+        if (_.isArray(item)) {
+
+            return _.map(item, toggleHeal);
+
+        }
+
+        item.heal = !item.heal;
+
+    }
+
+    return item
+
+}
+
+var toggled = _.flatten(_.map(obj, toggleHeal));
+
+console.log(obj);
+console.log(toggled);
+
+console.log('**********');
+
+var obj = {foo: 'bar', anwser: 42};
+
+console.log(_.map(obj, function(item){
+ 
+    return item;
+ 
+}));
+// ['bar',42]
 
 
     </script>

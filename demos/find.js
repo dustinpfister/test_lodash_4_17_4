@@ -1,11 +1,66 @@
 
+var arr = ['foo', 'man', 'chew'],
+index = -1;
+
+// using _.find to find index
+var findIndex = function (col, what) {
+
+    var index = -1;
+
+    // _.find will return the value
+    // but the index or key is one of the values
+    // in the iteration method
+    _.find(col, function (el, i) {
+
+        index = i;
+        return el === what;
+
+    });
+
+    // return the result
+    return index;
+
+};
+
+// this will return the index, or key
+console.log(findIndex(arr, 'man')); // 1
+console.log(findIndex({
+        what: 'foo',
+        how: 'bar'
+    }, 'bar')); // 'how'
+
+var findIndex = function (col, what) {
+
+    // however there is _.findIndex that will return the index
+    return _.findIndex(col, function (el, i) {
+
+        console.log('i=' + i);
+
+        return el === what;
+
+    });
+
+};
+
+console.log(findIndex(arr, 'man')); // 1
+
+// but it is an array method, so it will only work with arrays
+console.log(findIndex({what: 'foo',how: 'bar'}, 'bar')); // -1
+
+
+// using
+
+//console.log();
+
+/*
 var str = 'This is a single string! Yes it can be used with find.';
 
 console.log( _.find(str,function(el,i,col){
 
-    return el === '!';
+return el === '!';
 
 }) ); // !
+ */
 
 // ## custom iteration methods and lodash method shorthands
 /*
@@ -15,17 +70,17 @@ var data = ['talk', 'run', {action: 'walk'}, {action: 'sing'}, {action: 'dance'}
 // make use of closure...
 findProperty = function (propName) {
 
-    // ...that when called pass a function that 
-    // _.find can use
-    return function (el, i, col) {
+// ...that when called pass a function that
+// _.find can use
+return function (el, i, col) {
 
-        if (typeof el === 'object') {
+if (typeof el === 'object') {
 
-            return propName in el;
+return propName in el;
 
-        }
+}
 
-    };
+};
 
 };
 
@@ -44,7 +99,7 @@ console.log( _.find(data, 'action') );  // {action:'walk'}
 console.log( _.find(data, ['action','sing']) );  // {action:'sing'}
 
 console.log( _.find(data, {action:'dance'}) );  // {action:'dance'}
-*/
+ */
 
 /*
 // ## What a collection is, and basic example
