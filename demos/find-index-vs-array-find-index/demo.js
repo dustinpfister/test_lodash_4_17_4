@@ -19,6 +19,8 @@ console.log( objs.findIndex(function(el){
 // will work with it
 console.log( objs.findIndex( _.matches({n:42}) ) ); // 1
 
-// With the original method, the shorthand is baked in to the method.
-// resulting in a slightly more concise solution
+// With the original find index method, the shorthand 
+// is baked in to the method itself.
 console.log( _.findIndex(objs, {n:42}) );
+
+// Array.findIndex expects a method, not an object, and error will be thrown if done so.
