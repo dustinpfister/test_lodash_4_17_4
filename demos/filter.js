@@ -95,7 +95,7 @@ console.log(_.filter(data, {
 var obj = {
 
     foo: 'bar',
-	bool: false,
+    bool: false,
     n: 42,
     c: 7
 
@@ -107,7 +107,7 @@ var numbers = _.filter(obj, function (val, key, obj) {
 
     });
 
-console.log(numbers); [42,7];
+console.log(numbers); // [42,7];
 
 // Vanilla js Array.filter will not just work on any object
 var numbers = [].filter.call(obj, function(val,key,obj){
@@ -116,5 +116,21 @@ var numbers = [].filter.call(obj, function(val,key,obj){
 
 });
 
-console.log(numbers); [];
+console.log(numbers); // [];
+
+// but it will work on array like objects
+var numbers = [].filter.call({
+
+    0 : 'foo',
+    1: 'man',
+    2: 7,
+    length: 3
+
+}, function(val,key,obj){
+
+    return typeof val === 'number';
+
+});
+
+console.log(numbers);
 
