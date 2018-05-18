@@ -14,7 +14,7 @@ var data = [
 ];
 
 // using lodash _.filter to get posts that are doing good
-var doingGood = _.filter(data, function (rec) {
+var onTarget = _.filter(data, function (rec) {
 
     // return posts that have 280 or more clicks
     return rec.clicks >= 280;
@@ -22,7 +22,7 @@ var doingGood = _.filter(data, function (rec) {
 });
 
 
-console.log(JSON.stringify(doingGood));
+console.log(JSON.stringify(onTarget));
 /*
 [
     {"post":"lodash-find","clicks":1668,"cat":"lodash"},
@@ -32,7 +32,7 @@ console.log(JSON.stringify(doingGood));
 */
 
 // vanilla js
-var doingGood = data.filter(function (rec) {
+var onTargetVS = data.filter(function (rec) {
 
     // return posts that have 100 or more clicks
     // but less than 1000
@@ -40,4 +40,17 @@ var doingGood = data.filter(function (rec) {
 
 });
 
-console.log(JSON.stringify(doingGood));
+console.log(JSON.stringify(onTargetVS));
+
+
+// BAKED IN ITERATEE SHORTHANDS
+console.log( _.filter(data,_.matches({cat:'lodash'})) );
+
+// use can use lodash iteratee shorthands with
+// the native Array.filter method
+console.log( data.filter( _.matches({cat:'lodash'})) );
+
+// but the actual _.filter method has it baked in
+console.log(  _.filter(data,{cat:'lodash'}) );
+
+
