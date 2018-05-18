@@ -1,3 +1,15 @@
+// basic example
+console.log(
+
+    _.filter([4,-1,7,7,-3,-5,1], function(val){
+
+        return val > 0;
+
+    })
+
+); // [4, 7, 7, 1]
+
+
 var data = [{
         post: 'lodash_isarray',
         clicks: 0,
@@ -132,5 +144,5 @@ var numbers = [].filter.call({
 
 });
 
-console.log(numbers);
+console.log(numbers); // [7]
 
