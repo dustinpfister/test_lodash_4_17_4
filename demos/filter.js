@@ -143,6 +143,5 @@ var numbers = [].filter.call({
     return typeof val === 'number';
 
 });
-
 console.log(numbers); // [7]
 
