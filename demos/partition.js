@@ -22,3 +22,20 @@ _.partition(cards, function(card){
     });
 
 });
+
+// new demo
+var names = _.partition(cards, function(card){
+
+    return card.val >= 11;
+
+}).map(function(part){
+
+    return _.partition(part, function(card){
+
+        return card.suit === 'hearts';
+
+    });
+
+});
+
+console.log(names);
