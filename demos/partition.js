@@ -9,9 +9,24 @@ var cards = [
 ];
 
 
-_.partition(cards, function(card){
+_.each(_.partition(cards, function(card){
+ 
    return card.val >= 11;
-}).forEach(function(part,i){
+ 
+}), function(part, i){
+ 
+    console.log('** part: ' + i + ' **');
+ 
+    _.each(part, function(card){
+ 
+        console.log(card.desc);
+ 
+    });
+ 
+});
+
+/*
+.forEach(function(part,i){
 
     console.log('** part: ' + i + ' **');
 
@@ -22,6 +37,8 @@ _.partition(cards, function(card){
     });
 
 });
+*/
+
 
 // new demo
 var names = _.partition(cards, function(card){
